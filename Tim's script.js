@@ -215,7 +215,7 @@ const reviews = [
     name: "Neville Longbottom",
     house: "Gryffindor",
     img:
-      "https://helios-i.mashable.com/imagery/articles/03OiILlUISZMahF1OS4aqeI/hero-image.fill.size_1200x1200.v1623370930.jpg",
+      "nv.png",
     quote:
       "The thing is, it helps when people stand up to them, it gives everyone hope."
   },
@@ -224,7 +224,7 @@ const reviews = [
     name: "Rubeus Hagrid",
     house: "Gryffindor",
     img:
-      "https://i.insider.com/5637b27abd86ef195c8bb63d?width=1300&format=jpeg&auto=webp",
+      "hg.jpg",
     quote:
       "Helvetica artisan kinfolk thundercats lumbersexual blue bottle. Disrupt glossier gastropub deep v vice franzen hell of brooklyn twee enamel pin fashion axe.photo booth jean shorts artisan narwhal.",
   },
@@ -233,7 +233,7 @@ const reviews = [
     name: "Albus Dumbledore",
     house: "Gryffindor",
     img:
-      "https://parade.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkwNTgwODc3NzY0MTQyOTcy/dumbledore-quotes.jpg",
+      "dumbledore.jpg",
     quote:
       'It does not do to dwell on dreams, Harry, and forget to live.',
   },
@@ -242,7 +242,7 @@ const reviews = [
     name: "Minerva McGonagall",
     house: "Gryffindor",
     img:
-      "https://static.wikia.nocookie.net/harrypotter/images/9/96/Mcgonagall.png/revision/latest?cb=20151025165508&path-prefix=zh",
+      "mg.jpg",
     quote:
       "Welcome to Hogwarts!",
   },
@@ -466,9 +466,10 @@ function hgg(){
 
 }
 
-//slide show
+//gallery
 let slideIndex = 1;
 showSlides(slideIndex);
+
 
 function plusSlides(n) {
   showSlides(slideIndex += n);
@@ -477,26 +478,21 @@ function plusSlides(n) {
 
 function currentSlide(n) {
   showSlides(slideIndex = n);
-}//onlick the dot go to the slide
+}
 
 function showSlides(n) {
   let i;
-  let slides = document.getElementsByClassName("gpc");
+  let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {
-    slideIndex = 1
-  }
-  if (n < 1) {
-    slideIndex = slides.length
-  }
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
-  }//make the previous not display
+  }//when go to the next make the previous one not display
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
-  }
+  }//to replace the dot when go to the next slide, to add active class to the clicked buttong
   slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+  dots[slideIndex-1].className += " active";//class name is to get and set value for the class element
 }
-
 
